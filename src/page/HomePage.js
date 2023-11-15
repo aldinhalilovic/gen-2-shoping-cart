@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
+import products from "../data/products.json";
+import Card from "../components/productCard/Card";
+import { CartContext } from "../store/CartContext";
 
 function HomePage() {
-  return <div>HomePage</div>;
+  const { addToCart, shoppingCart } = useContext(CartContext);
+
+  console.log(shoppingCart, "shopping cart");
+
+  return (
+    <div>
+      {products.map((product) => (
+        <Card
+          key={product.id}
+          product={product}
+          addToCart={() => addToCart(product)}
+        />
+      ))}
+    </div>
+  );
 }
 
 export default HomePage;

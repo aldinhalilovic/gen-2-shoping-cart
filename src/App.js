@@ -7,13 +7,15 @@ import Contact from "./page/Contact";
 import Cart from "./page/Cart";
 import Profile from "./page/Profile";
 import CartContextProvider from "./store/CartContext";
+import Footer from "./components/footer/Footer";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Header />
-        <div style={{ padding: "0 20%" }}>
+        <div style={{ padding: "0 20%", minHeight: "66.5vh" }}>
           <CartContextProvider>
             <Routes>
               <Route path="/" element={<HomePage />} />
@@ -24,6 +26,8 @@ function App() {
             </Routes>
           </CartContextProvider>
         </div>
+        <Toaster />
+        <Footer />
       </BrowserRouter>
     </div>
   );
