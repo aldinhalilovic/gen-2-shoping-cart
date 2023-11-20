@@ -23,9 +23,13 @@ export default function CartContextProvider({ children }) {
     }
   };
 
+  const cartSize = () => shoppingCart.length;
+
   const value = {
     shoppingCart,
     addToCart,
+    inCart,
+    cartSize,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

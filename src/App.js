@@ -14,9 +14,9 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
-        <div style={{ padding: "0 20%", minHeight: "66.5vh" }}>
-          <CartContextProvider>
+        <CartContextProvider>
+          <Header />
+          <div style={{ padding: "0 20%", minHeight: "66.5vh" }}>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<About />} />
@@ -24,10 +24,10 @@ function App() {
               <Route path="/cart" element={<Cart />} />
               <Route path="/profile" element={<Profile />} />
             </Routes>
-          </CartContextProvider>
-        </div>
-        <Toaster />
-        <Footer />
+          </div>
+          <Toaster />
+          <Footer />
+        </CartContextProvider>
       </BrowserRouter>
     </div>
   );

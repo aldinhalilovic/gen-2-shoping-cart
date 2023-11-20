@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./card.css";
 import { useState } from "react";
+import { CartContext } from "../../store/CartContext";
 
 function Card({ product, addToCart }) {
+  const { inCart } = useContext(CartContext);
+
   const [quantity, setQuantity] = useState(0);
 
   const max = 10;
@@ -41,9 +44,15 @@ function Card({ product, addToCart }) {
         <div
           className="quantity"
           onClick={addToCart}
-          style={{ width: "100px", cursor: "pointer", fontWeight: "bolder" }}
+          style={{
+            width: "100px",
+            cursor: "pointer",
+            fontWeight: "bolder",
+            textAlign: "center",
+          }}
         >
-          <p>Add to cart</p>
+          {inCart(product) ? <p>Added to cart!</p> : <p>Add to cart</p>}
+          {/*  */}
         </div>
       </div>
     </div>
