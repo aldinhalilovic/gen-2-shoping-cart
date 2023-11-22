@@ -1,15 +1,20 @@
 import React, { useContext } from "react";
 import products from "../data/products.json";
-import Card from "../components/productCard/Card";
 import { CartContext } from "../store/CartContext";
+import Card from "../components/productCard/Card";
 
 function HomePage() {
-  const { addToCart, shoppingCart } = useContext(CartContext);
-
-  console.log(shoppingCart, "shopping cart");
+  const { addToCart } = useContext(CartContext);
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        gap: 40,
+      }}
+    >
       {products.map((product) => (
         <Card
           key={product.id}
