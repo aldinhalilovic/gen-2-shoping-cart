@@ -38,11 +38,9 @@ export default function CartContextProvider({ children }) {
 
     shoppingCart.map((prod) => {
       if (prod.discount) {
-        total += prod.price * (prod.discount / 10);
-        console.log(total, "if");
+        total += prod.price - prod.price * (prod.discount / 100);
       } else {
         total += prod.price;
-        console.log(total, "else");
       }
     });
     return total;
