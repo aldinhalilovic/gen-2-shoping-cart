@@ -19,6 +19,7 @@ export default function CartContextProvider({ children }) {
       toast.error("already in Cart");
     } else {
       setShoppingCart((prev) => [...prev, product]);
+      localStorage.setItem(product.id, JSON.stringify(product));
       notify();
     }
   };
